@@ -9,11 +9,11 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Install JupyterLab and dependencies
+# Install JupyterLab
 RUN pip install --no-cache-dir jupyterlab
 
-# Expose the default JupyterLab port
+# Expose JupyterLab port
 EXPOSE 8888
 
-# Run JupyterLab
+# Run JupyterLab with root access
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
